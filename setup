@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#git fetch -p
+#git merge origin/master
+
+for name in `ls -a`; do
+  test -d ${name} && continue
+  test ${name:0:1} = '.' || continue
+  test -e ~/${name} && rm -f ~/${name}
+  ln -fs `pwd`/${name} ~/${name}
+done
