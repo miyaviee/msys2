@@ -6,6 +6,7 @@ pacman -Syu
 # restart msys2
 pacman -Syu # 再度実行
 pacman -S git # vimも一緒に入る
+pacman -S winpty # tty実行のため
 ```
 
 ## 設定
