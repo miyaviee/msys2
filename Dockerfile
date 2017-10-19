@@ -33,17 +33,12 @@ RUN chsh -s /bin/zsh \
 RUN sed -i 's@#PermitRootLogin.*@PermitRootLogin yes@g' /etc/ssh/sshd_config \
   && sed -i 's@#HostKey /etc/ssh/ssh_host_rsa_key@HostKey /etc/ssh/ssh_host_rsa_key@g' /etc/ssh/sshd_config
 
-RUN ssh-keygen -t rsa -b 2048 -N '' -f /etc/ssh/ssh_host_rsa_key \
-  && chmod -R 600 /etc/ssh/ssh_host_rsa_key
-
-RUN ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa \
-  && cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys \
-  && chmod -R 600 ~/.ssh
-
 RUN curl -Lo /usr/local/bin/direnv https://github.com/direnv/direnv/releases/download/v2.13.1/direnv.linux-amd64 \
   && chmod +x /usr/local/bin/direnv
 
 RUN curl -Lo /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl \
   && chmod +x /usr/local/bin/kubectl
 
-CMD ["/sbin/sshd", "-D"]
+ADD ./run.sh /run.sh
+
+CMD ["/run.sh"]
