@@ -1,0 +1,6 @@
+#!/bin/sh
+
+docker-machine create default \
+  --virtualbox-cpu-count 2 \
+  --virtualbox-memory 4096 \
+  --virtualbox-disk-size 51200
