@@ -26,6 +26,7 @@ RUN pacman -Syy \
       vim \
       docker \
       the_silver_searcher \
+      adobe-source-han-sans-jp-fonts \
       openssh \
   && pacman -Scc --noconfirm
 
