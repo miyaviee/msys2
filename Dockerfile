@@ -20,6 +20,8 @@ RUN pacman -Syy \
       go \
       jre8-openjdk \
       scala \
+      nodejs \
+      npm \
       zsh \
       vim \
       docker \
