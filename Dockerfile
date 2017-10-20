@@ -7,27 +7,27 @@ RUN ln -fs /usr/share/zoninfo/Asia/Tokyo /etc/localtime
 
 RUN pacman -Syy \
   && pacman -S --noconfirm \
-      gcc \
-      make \
-      zip \
-      unzip \
-      git \
-      lua \
-      ruby \
-      python2 \
-      python3 \
-      python-pip \
-      go \
-      jre8-openjdk \
-      scala \
-      nodejs \
-      npm \
-      zsh \
-      vim \
-      docker \
-      the_silver_searcher \
-      adobe-source-han-sans-jp-fonts \
-      openssh \
+    gcc \
+    make \
+    zip \
+    unzip \
+    git \
+    lua \
+    ruby \
+    python2 \
+    python3 \
+    python-pip \
+    go \
+    jre8-openjdk \
+    scala \
+    nodejs \
+    npm \
+    zsh \
+    vim \
+    docker \
+    the_silver_searcher \
+    adobe-source-han-sans-jp-fonts \
+    openssh \
   && pacman -Scc --noconfirm
 
 RUN chsh -s /bin/zsh \
