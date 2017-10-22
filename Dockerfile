@@ -13,6 +13,7 @@ RUN pacman -Syy \
     unzip \
     git \
     lua \
+    luajit \
     ruby \
     python2 \
     python3 \
