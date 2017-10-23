@@ -29,6 +29,7 @@ RUN pacman -Syy \
     the_silver_searcher \
     adobe-source-han-sans-jp-fonts \
     openssh \
+    graphviz \
   && pacman -Scc --noconfirm
 
 RUN chsh -s /bin/zsh \
@@ -36,6 +37,9 @@ RUN chsh -s /bin/zsh \
 
 RUN sed -i 's@#PermitRootLogin.*@PermitRootLogin yes@g' /etc/ssh/sshd_config \
   && sed -i 's@#HostKey /etc/ssh/ssh_host_rsa_key@HostKey /etc/ssh/ssh_host_rsa_key@g' /etc/ssh/sshd_config
+
+RUN npm i -g uiflow \
+  && rm -rf ~/.npm
 
 RUN curl -Lo /usr/local/bin/direnv https://github.com/direnv/direnv/releases/download/v2.13.1/direnv.linux-amd64 \
   && chmod +x /usr/local/bin/direnv
