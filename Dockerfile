@@ -3,7 +3,7 @@ FROM base/archlinux
 RUN sed -i 's@#en_US.UTF-8.*@en_US.UTF-8 UTF-8@g' /etc/locale.gen \
   && locale-gen
 
-RUN ln -fs /usr/share/zoninfo/Asia/Tokyo /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 RUN pacman -Syy \
   && pacman -S --noconfirm \
