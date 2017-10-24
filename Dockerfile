@@ -36,7 +36,8 @@ RUN chsh -s /bin/zsh \
   && mv /etc/zsh/zprofile /etc/zsh/zprofile.bak
 
 RUN sed -i 's@#PermitRootLogin.*@PermitRootLogin yes@g' /etc/ssh/sshd_config \
-  && sed -i 's@#HostKey /etc/ssh/ssh_host_rsa_key@HostKey /etc/ssh/ssh_host_rsa_key@g' /etc/ssh/sshd_config
+  && sed -i 's@#HostKey /etc/ssh/ssh_host_rsa_key@HostKey /etc/ssh/ssh_host_rsa_key@g' /etc/ssh/sshd_config \
+  && sed -i 's@#Port.*@Port 2222@g' /etc/ssh/sshd_config
 
 RUN npm i -g uiflow \
   && rm -rf ~/.npm
@@ -48,5 +49,7 @@ RUN curl -Lo /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-re
   && chmod +x /usr/local/bin/kubectl
 
 ADD ./run.sh /run.sh
+
+EXPOSE 2222
 
 CMD ["/run.sh"]
