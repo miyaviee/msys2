@@ -9,4 +9,7 @@ test -e ~/.ssh/id_rsa \
   && cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys \
   && chmod -R 600 ~/.ssh
 
+test -e ~/.ssh-agent \
+  || ssh-agent > ~/.ssh-agent
+
 /sbin/sshd -D
