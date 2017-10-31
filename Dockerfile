@@ -9,6 +9,8 @@ RUN pacman -Syy \
   && pacman -S --noconfirm \
     gcc \
     make \
+    automake \
+    autoconf \
     zip \
     unzip \
     git \
