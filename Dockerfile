@@ -20,19 +20,24 @@ RUN pacman -Syyu --noconfirm \
     python2 \
     python3 \
     python-pip \
+    python2-pip \
     go \
     jre8-openjdk \
     scala \
     nodejs \
     npm \
     zsh \
-    vim \
+    neovim \
+    python-neovim \
+    python2-neovim \
     docker \
     the_silver_searcher \
     adobe-source-han-sans-jp-fonts \
     openssh \
     graphviz \
   && pacman -Scc --noconfirm
+
+RUN gem install neovim && npm i -g neovim
 
 RUN chsh -s /bin/zsh \
   && mv /etc/zsh/zprofile /etc/zsh/zprofile.bak
