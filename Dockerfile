@@ -26,6 +26,7 @@ RUN pacman -Syu --noconfirm \
     docker \
     ripgrep \
     openssh \
+    words \
   && pacman -Scc --noconfirm
 
 RUN chsh -s /bin/zsh \
